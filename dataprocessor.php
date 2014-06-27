@@ -21,7 +21,7 @@
 		//connect to the game db to see if the game id already exist
 		
 		if(getGames($p->gameId) == FALSE){ 
-			echo 'Processing Game ID: '. $p->gameId;
+			echo 'Processing Game ID: '. $p->gameId .'<br />';
 			//If it doesn't add values
 			$kda = sprintf('%.02f', ($p->stats->championsKilled + $p->stats->assists) / $p->stats->numDeaths);
 			date_default_timezone_set('America/Los_Angeles');
@@ -114,7 +114,7 @@ function getGames($gameid){
 	// Performing SQL query
 	$query = 'SELECT GameId FROM Game where GameId ='.$gameid;
 	$result = mysql_query($query) or die('Get Games Query failed: ' . mysql_error());
-	$set_result = mysql_result($result, 0); // outputs third employee's name
+	$set_result = mysql_result($result, 0); 
 
 	if ($set_result != null){
 		$game_exists = TRUE;
