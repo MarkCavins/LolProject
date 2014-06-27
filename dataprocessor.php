@@ -1,6 +1,7 @@
 <?php
 	
-	require_once('gameconnect.php');
+	require('gameconnect.php');
+	
 	//Main game URL
 	$game_url = 'https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/27302940/recent?'.$gamekey;
 
@@ -92,6 +93,8 @@
 			$p->stats->goldSpent; $p->stats->wardPlaced; $p->stats->sightWardsBought; $time_played;
 			$p->gameMode; $map; $p->subType; $game_date;
 			 */
+		}else{
+			echo 'No Need to process <br />';
 		}
 	}
 echo 'Done Processing';
@@ -99,6 +102,9 @@ echo 'Done Processing';
 		
 function getGames($gameid){	
 		
+	require('gameconnect.php');
+	
+	
 	// Connecting, selecting database
 	$link = mysql_connect($mysql_host, $mysql_user, $mysql_password)
     or die('Get Games Could not connect: ' . mysql_error());
@@ -107,7 +113,9 @@ function getGames($gameid){
 	// Performing SQL query
 	$query = 'SELECT GameId FROM Game where GameId ='.$gameid;
 	$result = mysql_query($query) or die('Get Games Query failed: ' . mysql_error());
-	if ($result != null){
+	
+	echo $result->GameId.'</br>';
+	if ($result->GameId != null){
 		$game_exists = TRUE;
 	} else{
 		$game_exists = FALSE;
@@ -124,13 +132,16 @@ function getGames($gameid){
  
 
 function mysql_insert($inserts) {
-    $values = array_map('mysql_real_escape_string', array_values($inserts));
+	require('gameconnect.php');
+	
+    $values = array_values($inserts);
     $keys = array_keys($inserts);
 	// Connecting, selecting database
     $link = mysql_connect($mysql_host, $mysql_user, $mysql_password)
     or die('Set Games Could not connect: ' . mysql_error());
 	//echo 'Connected successfully';
 	mysql_select_db($db) or die('Set Games Could not select database');
+	
 	
     $result = mysql_query('INSERT INTO Game (`'.implode('`,`', $keys).'`) VALUES (\''.implode('\',\'', $values).'\')')
 	or die('Set Games Query failed: ' . mysql_error());
