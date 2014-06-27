@@ -21,7 +21,7 @@
 		//connect to the game db to see if the game id already exist
 		
 		if(getGames($p->gameId) == FALSE){ 
-		
+			echo 'Processing Game ID: '. $p->gameId;
 			//If it doesn't add values
 			$kda = sprintf('%.02f', ($p->stats->championsKilled + $p->stats->assists) / $p->stats->numDeaths);
 			date_default_timezone_set('America/Los_Angeles');
@@ -84,7 +84,8 @@
     		'Map' => $map,
     		'SubType' => $p->subType,
     		'GameDate' => $game_date,
-    		'Video' => '')
+    		'Video' => '',
+			'Comments' => '')
 			);
 			
 			/*$p->gameId; $p->championId; $champ_name; $champ_title; $did_win; $kda;
@@ -94,7 +95,7 @@
 			$p->gameMode; $map; $p->subType; $game_date;
 			 */
 		}else{
-			echo 'No Need to process <br />';
+			echo 'No Need to process '.$p->gameId.' info already exists. <br />';
 		}
 	}
 echo 'Done Processing';
@@ -113,9 +114,9 @@ function getGames($gameid){
 	// Performing SQL query
 	$query = 'SELECT GameId FROM Game where GameId ='.$gameid;
 	$result = mysql_query($query) or die('Get Games Query failed: ' . mysql_error());
-	
-	echo $result->GameId.'</br>';
-	if ($result->GameId != null){
+	$set_result = mysql_result($result, 0); // outputs third employee's name
+
+	if ($set_result != null){
 		$game_exists = TRUE;
 	} else{
 		$game_exists = FALSE;
