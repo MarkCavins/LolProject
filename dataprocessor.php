@@ -23,7 +23,12 @@
 		if(getGames($p->gameId) == FALSE){ 
 			echo 'Processing Game ID: '. $p->gameId .'<br />';
 			//If it doesn't add values
-			$kda = sprintf('%.02f', ($p->stats->championsKilled + $p->stats->assists) / $p->stats->numDeaths);
+			var_dump($p->stats->numDeaths);
+			if ($p->stats->numDeaths != 0 || $p->stats->numDeaths != '' || $p->stats->numDeaths != NULL){
+				$kda = sprintf('%.02f', ($p->stats->championsKilled + $p->stats->assists) / $p->stats->numDeaths);
+			}else{
+				$kda = sprintf('%.02f', ($p->stats->championsKilled + $p->stats->assists) / 1);
+			}
 			date_default_timezone_set('America/Los_Angeles');
 			$time_played = gmdate('H:i:s', $p->stats->timePlayed);	
 			$game_date = date('Y-m-d H:i:s',$p->createDate/1000);
