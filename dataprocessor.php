@@ -23,7 +23,7 @@
 		if(getGames($p->gameId) == FALSE){ 
 			echo 'Processing Game ID: '. $p->gameId .'<br />';
 			//If it doesn't add values
-			var_dump($p->stats->numDeaths);
+			
 			if ($p->stats->numDeaths != 0 || $p->stats->numDeaths != '' || $p->stats->numDeaths != NULL){
 				$kda = sprintf('%.02f', ($p->stats->championsKilled + $p->stats->assists) / $p->stats->numDeaths);
 			}else{
