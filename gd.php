@@ -5,7 +5,15 @@ $GameID = $_REQUEST['gameid'];
 $GrabGames = $_REQUEST['grabgames'];
 $StartRow = $_REQUEST['startrow'];
 
+$gametype = $_REQUEST['gametype'];
 
+if ($gametype == 'grid'){
+	getGameGrid($StartRow);
+}else if ($gametype == 'single'){
+	getsingleGame($GameID);
+}else{
+	echo 'Select a type of game and resubmit!!!!';
+}
 
 function getGameGrid($startrow){	
 		
@@ -33,8 +41,8 @@ function getGameGrid($startrow){
 	GameDate 
 	FROM Game 
 	ORDER BY GameDate DESC
-	limt = 100
-	offset = '.$startrow.'';
+	limit  100
+	offset '.$startrow.'';
 	$result = mysql_query($query) or die('Get Games Query failed: ' . mysql_error());
 	
 	$json_output = array();
@@ -46,7 +54,7 @@ function getGameGrid($startrow){
 	// Closing connection
 	mysql_close($link);
 	
-	return $json_output[];
+	return $json_output;
 		
 }	
 
@@ -74,7 +82,7 @@ function getsingleGame($gameid = null){
 		// Closing connection
 		mysql_close($link);
 	
-		return $json_output[];
+		return $json_output;
 	}else{
 		return $json_output = null;
 	}
