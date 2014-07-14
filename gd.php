@@ -30,7 +30,7 @@ function getGameGrid($startrow){
 	mysql_select_db($db) or die('Get Games Could not select database');
 	// Performing SQL query
 	$query = 'SELECT 
-	(SELECT COUNT (GameId) FROM Game) AS TotalCount, 
+	(SELECT COUNT(GameId) FROM Game) AS TotalCount, 
 	GameId, 
 	ChampId, 
 	ChampName, 
@@ -47,8 +47,9 @@ function getGameGrid($startrow){
 	
 	$json_output = array();
 	while($row = mysql_fetch_assoc($result)){
-    	$json_output[] = json_encode($row);
+    	$json_output .= json_encode($row);
 	}
+	//var_dump ($json_output);
 	// Free resultset
 	mysql_free_result($result);
 	// Closing connection
@@ -75,8 +76,9 @@ function getsingleGame($gameid = null){
 	
 		$json_output = array();
 		while($row = mysql_fetch_assoc($result)){
-    		$json_output[] = json_encode($row);
+    		$json_output = json_encode($row);
 		}
+		//var_dump ($json_output);
 		// Free resultset
 		mysql_free_result($result);
 		// Closing connection
