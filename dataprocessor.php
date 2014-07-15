@@ -69,7 +69,7 @@
 			mysql_insert(array(
     		'GameId' => $p->gameId,
     		'ChampId' => $p->championId,
-    		'ChampName' => mysql_real_escape_string($champ_name),
+    		'ChampName' => htmlspecialchars($champ_name, ENT_QUOTES),
     		'ChampTitle' => $champ_title,
     		'Win' => $did_win,
     		'KDA' => $kda,
