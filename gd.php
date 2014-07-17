@@ -45,17 +45,18 @@ function getGameGrid($startrow){
 	offset '.$startrow.'';
 	$result = mysql_query($query) or die('Get Games Query failed: ' . mysql_error());
 	
-	$json_output = array();
-	while($row = mysql_fetch_assoc($result)){
-    	$json_output .= json_encode($row);
+	$rows = array();
+	while($r = mysql_fetch_assoc($result)) {
+    	$rows[] = $r;
 	}
-	//var_dump ($json_output);
+
+	
 	// Free resultset
 	mysql_free_result($result);
 	// Closing connection
 	mysql_close($link);
-	
-	return $json_output;
+	//var_dump ($json_output);
+	print json_encode($rows);
 		
 }	
 
@@ -73,10 +74,10 @@ function getsingleGame($gameid = null){
 		// Performing SQL query
 		$query = 'SELECT * FROM Game where GameId ='.$gameid;
 		$result = mysql_query($query) or die('Get Games Query failed: ' . mysql_error());
-	
-		$json_output = array();
-		while($row = mysql_fetch_assoc($result)){
-    		$json_output = json_encode($row);
+		
+		$rows = array();
+		while($r = mysql_fetch_assoc($result)) {
+    		$rows[] = $r;
 		}
 		//var_dump ($json_output);
 		// Free resultset
@@ -84,9 +85,9 @@ function getsingleGame($gameid = null){
 		// Closing connection
 		mysql_close($link);
 	
-		return $json_output;
+		print json_encode($rows);
 	}else{
-		return $json_output = null;
+		print null;
 	}
 		
 }		
