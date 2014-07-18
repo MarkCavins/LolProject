@@ -7,6 +7,16 @@ body {
   padding-top: 50px;
 }
 
+#win {
+  background-color: #6fe060;
+}
+
+
+
+#loss {
+  background-color: #e05151;
+}
+
 
 /*
  * Global add-ons

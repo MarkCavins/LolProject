@@ -11,6 +11,8 @@ if ($gametype == 'grid'){
 	getGameGrid($StartRow);
 }else if ($gametype == 'single'){
 	getsingleGame($GameID);
+}else if ($gametype == 'averages'){
+	getAverages();
 }else{
 	echo 'Select a type of game and resubmit!!!!';
 }
@@ -90,6 +92,39 @@ function getsingleGame($gameid = null){
 		print null;
 	}
 		
+}
+
+function getAverages(){		
+		require('gameconnect.php');
+	
+		// Connecting, selecting database
+		$link = mysql_connect($mysql_host, $mysql_user, $mysql_password)
+    	or die('Get Games Could not connect: ' . mysql_error());
+		//echo 'Connected successfully';
+		mysql_select_db($db) or die('Get Games Could not select database');
+		// Performing SQL query
+		$query = 'SELECT 
+		AVG( KDA ) AS AverageKDA, 
+		AVG( Kills ) AS AverageKills, 
+		AVG( Deaths ) AS AverageDeaths, 
+		AVG( Assists ) AS AverageAssists, 
+		AVG( WardsPlace ) AS AverageWardsPlaced
+		FROM Game';
+		$result = mysql_query($query) or die('Get Games Query failed: ' . mysql_error());
+		
+		$rows = array();
+		while($r = mysql_fetch_assoc($result)) {
+    		$rows[] = $r;
+		}
+		// Free resultset
+		mysql_free_result($result);
+		// Closing connection
+		mysql_close($link);
+	
+		print json_encode($rows);
+
+	 
+	
 }		
  
 

@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Muffin Puffer Lol Home Page</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Welcome to Muffin Puffer's Home Page</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+          	<li><a href="index.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>           
+          </ul> 
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+   
+        <div class="col-sm-11 col-sm-offset-1 col-md-12 col-md-offset-0 col-lg-12 col-lg-offset-0 main">
+          <h1 class="page-header">My Stream</h1>
+          <p>Hello and welcome to my site. This was created to augment my <a href="http://www.twitch.tv/muffinpuffer">Twitch</a> 
+          	and <a href="https://www.youtube.com/channel/UCRt3emBF-AmhFy0fxI-pH4A">YouTube</a> channels with a little more info about me.</p>
+           <div class="row placeholders col-md-7" id="Stream">
+          <!-- Twitch Stream Popout --> 
+          <object type="application/x-shockwave-flash" height="378" width="620" id="live_embed_player_flash" data="http://www.twitch.tv/widgets/live_embed_player.swf?channel=muffinpuffer" bgcolor="#000000">
+         <param name="allowFullScreen" value="true" />
+         <param name="allowScriptAccess" value="always" />
+         <param name="allowNetworking" value="all" />
+         <param name="movie" value="http://www.twitch.tv/widgets/live_embed_player.swf" />
+         <param name="flashvars" value="hostname=www.twitch.tv&channel=muffinpuffer&auto_play=true&start_volume=25" />
+         </object><a href="http://www.twitch.tv/muffinpuffer" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline; text-align:center;">
+         	Watch live video from MuffinPuffer on www.twitch.tv</a>
+         	
+        </div>
+        <!-- Twitch Chat Popout -->
+        <div class="row chat col-md-3 col-md-offset-1" id="chat">
+        <iframe frameborder="0" scrolling="no" src="http://twitch.tv/muffinpuffer/chat?popout=" height="378" width="350"></iframe>	      	
+		</div>
+		<div class="About col-md-12"> 
+          	
+          	<h4 class="page-header">About Me</h4>
+          	 <p>I am a 
+          		father of 2 who enjoys playing League of Legends while the rest of the family is asleep. While being a casual in the game, that 
+          		does not make me in any way less passionate about my progress. In season three I got as high as Silver 4. By the end 
+          		of the season however I was at only a 39% win average. I could make all the excuses that I wanted but the truth is that with a few 
+          		exception of some troll teams my loses were my fault. Bad positioning, going to agressive without propper vision, and playing champs 
+          		I had played only a few games with in Normals. Couple that with the fact that in July I found out that I was having my second son 
+          		and my head wasn't really in it. Riot payed me back when I went into Season 4. After posting a 5/5 placing I was put into Bronze. 
+          		After my son came 6 weeks early I settled into fatherhood and promptly decayed into Bronze 5.</p>
+          	<h4 class="page-header">The Plan</h4>
+          	<p>Rather than try to climb my way up through ranked I had a moment of clarity. I would spend the rest of the season having fun and 
+          		working on a role (support) that I could really get good at. So being a numbers kind of person I decided to look at Riot's API and 
+          		start making a dashboard that I could track my game progress. I would set a goal and with that goal in mind go into each game 
+          		focussing on the game play to make that goal a reality. </p>
+          	<p>On the dashboard page you will find all of the games that I have played since mid June (when I became active again). What I will try 
+          		to provide on a consistant basis is My KDA, Kills, Deaths, Assists and other game data to show my progress towards my goal. Could I 
+          		get all this data from LolKing or some site like that? Sure I could but 10 games at a time is misleading. I like to look at progress 
+          		over time. Is my Average KDA getting better or worse? Am I forgetting to place enough wards? Do I consistantly have more deaths than 
+          		kills? All these things we know contribute to bad games but sometimes forget when EZ is flaming you all game.</p>
+          	<p>The last things I plan to provide is comments and video highlights for each game. This could be more challenging for both the time and 
+          		the fact that it is always hard to point out your failings than it is to highlight your sucesses. But as with all goals it is the 
+          		work that you put in that helps you achive those goals.</p>
+          	</div>	
+         
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-2.0.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
