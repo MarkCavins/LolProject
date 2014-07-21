@@ -27,11 +27,11 @@ $.getJSON('gd.php?gametype=grid',
     	for (var i = 0; i < data.length; i++) {
     		vid += "<h2>Current Averages</h2>";
         	vid += "<ul>";
-        	vid += "<li> Average KDA: " + data[i].AverageKDA + "</li>";
-        	vid += "<li> Average Kills: " + data[i].AverageKills + "</li>";
-        	vid += "<li> Average Deaths: " + data[i].AverageDeaths + "</li>";
-        	vid += "<li> Average Assists: " + data[i].AverageAssists + "</li>";
-        	vid += "<li> Average Wards Placed: " + data[i].AverageWardsPlaced + "</li>";
+        	vid += "<li> Average KDA: " + roundToTwo(data[i].AverageKDA) + "</li>";
+        	vid += "<li> Average Kills: " + roundToTwo(data[i].AverageKills) + "</li>";
+        	vid += "<li> Average Deaths: " + roundToTwo(data[i].AverageDeaths) + "</li>";
+        	vid += "<li> Average Assists: " + roundToTwo(data[i].AverageAssists) + "</li>";
+        	vid += "<li> Average Wards Placed: " + roundToTwo(data[i].AverageWardsPlaced) + "</li>";
         	vid += "</ul>";
         	
     	}
@@ -97,3 +97,8 @@ $.getJSON('gd.php?gametype=single&gameid=' + gameId + ' ',
 
 
 }//end function
+
+
+function roundToTwo(num) {    
+    return +(Math.round(num + "e+2")  + "e-2");
+}
