@@ -42,6 +42,47 @@ $.getJSON('gd.php?gametype=grid',
 	
 });//document ready close
 
+function goalClick(){
+	
+	$.getJSON('gd.php?gametype=gridgoal',
+	function (data) {
+    	var html = '';
+    	
+    	for (var i = 0; i < data.length; i++) {
+        	html += "<tr>";
+        	html += "<td><a href='#' onclick='goChamp(" + data[i].GameId + ")' >" + data[i].ChampName + "</a></td>";
+        	html += "<td>" + data[i].KDA + "</td>";
+        	html += "<td>" + data[i].Kills + "</td>";
+        	html += "<td>" + data[i].Deaths + "</td>";
+        	html += "<td>" + data[i].Assists + "</td>";
+        	html += "<td>" + data[i].GameDate + "</td>";
+        	html += "</tr>";
+        	
+    	}
+    	$("#mytable tbody").html(html);
+	});
+	
+	
+	$.getJSON('gd.php?gametype=goalaverages',
+	function (data) {
+    	var vid = '';
+    	
+    	for (var i = 0; i < data.length; i++) {
+    		vid += "<h2>Goal Champs Current Averages</h2>";
+        	vid += "<ul>";
+        	vid += "<li> Average KDA: " + roundToTwo(data[i].AverageKDA) + "</li>";
+        	vid += "<li> Average Kills: " + roundToTwo(data[i].AverageKills) + "</li>";
+        	vid += "<li> Average Deaths: " + roundToTwo(data[i].AverageDeaths) + "</li>";
+        	vid += "<li> Average Assists: " + roundToTwo(data[i].AverageAssists) + "</li>";
+        	vid += "<li> Average Wards Placed: " + roundToTwo(data[i].AverageWardsPlaced) + "</li>";
+        	vid += "</ul>";
+        	
+    	}
+    	$("#video").html(vid);
+	});
+	
+	
+}//end goal click
 
 function goChamp(gameId) {
     
