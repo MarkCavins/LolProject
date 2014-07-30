@@ -119,9 +119,9 @@ function getGames($gameid){
 	// Performing SQL query
 	$query = 'SELECT GameId FROM Game where GameId ='.$gameid;
 	$result = mysql_query($query) or die('Get Games Query failed: ' . mysql_error());
-	$set_result = mysql_result($result, 0); 
+	$set_result = mysql_num_rows($result);
 
-	if ($set_result != null){
+	if ($set_result > 0){
 		$game_exists = TRUE;
 	} else{
 		$game_exists = FALSE;
