@@ -91,7 +91,7 @@ function getGoalGameGrid(){
 	Assists,
 	GameDate 
 	FROM Game 
-	where ChampId in (201,25, 267, 89, 1, 412)
+	where ChampId in (201,25, 267, 89, 37, 412)
 	ORDER BY GameDate DESC';
 	$result = mysql_query($query) or die('Get Games Query failed: ' . mysql_error());
 	
@@ -191,7 +191,7 @@ function getGoalAverages(){
 		AVG( Assists ) AS AverageAssists, 
 		AVG( WardsPlace ) AS AverageWardsPlaced
 		FROM Game
-		where ChampId in (201,25, 267, 89, 1, 412)';
+		where ChampId in (201,25, 267, 89, 37, 412)';
 		$result = mysql_query($query) or die('Get Games Query failed: ' . mysql_error());
 		
 		$rows = array();
