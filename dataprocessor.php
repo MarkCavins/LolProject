@@ -152,8 +152,6 @@ function mysql_insert($inserts) {
     $result = mysql_query('INSERT INTO Game (`'.implode('`,`', $keys).'`) VALUES (\''.implode('\',\'', $values).'\')')
 	or die('Set Games Query failed: ' . mysql_error());
 	
-	// Free resultset
-	mysql_free_result($result);
 	// Closing connection
 	mysql_close($link);
 }
