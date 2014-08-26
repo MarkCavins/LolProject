@@ -46,9 +46,7 @@ function getGameGrid($startrow){
 	Assists,
 	GameDate 
 	FROM Game 
-	ORDER BY GameDate DESC
-	limit  100
-	offset '.$startrow.'';
+	ORDER BY GameDate DESC';
 	$result = mysql_query($query) or die('Get Games Query failed: ' . mysql_error());
 	
 	$rows = array();
