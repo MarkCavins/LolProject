@@ -70,7 +70,7 @@
     		'GameId' => $p->gameId,
     		'ChampId' => $p->championId,
     		'ChampName' => htmlspecialchars($champ_name, ENT_QUOTES),
-    		'ChampTitle' => $champ_title,
+    		'ChampTitle' => htmlspecialchars($champ_title, ENT_QUOTES),
     		'Win' => $did_win,
     		'KDA' => $kda,
     		'Kills' => $p->stats->championsKilled,
