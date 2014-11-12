@@ -117,7 +117,7 @@ function getGames($gameid){
 	//echo 'Connected successfully';
 	mysql_select_db($db) or die('Get Games Could not select database');
 	// Performing SQL query
-	$query = 'SELECT GameId FROM Game where GameId ='.$gameid;
+	$query = 'SELECT GameId FROM preseason5 where GameId ='.$gameid;
 	$result = mysql_query($query) or die('Get Games Query failed: ' . mysql_error());
 	$set_result = mysql_num_rows($result);
 
@@ -149,7 +149,7 @@ function mysql_insert($inserts) {
 	mysql_select_db($db) or die('Set Games Could not select database');
 	
 	
-    $result = mysql_query('INSERT INTO Game (`'.implode('`,`', $keys).'`) VALUES (\''.implode('\',\'', $values).'\')')
+    $result = mysql_query('INSERT INTO preseason5 (`'.implode('`,`', $keys).'`) VALUES (\''.implode('\',\'', $values).'\')')
 	or die('Set Games Query failed: ' . mysql_error());
 	
 	// Closing connection
