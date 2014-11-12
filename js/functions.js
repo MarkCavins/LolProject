@@ -42,15 +42,18 @@ $.getJSON('gd.php?gametype=grid',
 	
 });//document ready close
 
-function goalClick(){
+function goalClick(season, goal, champ){
 	
-	$.getJSON('gd.php?gametype=gridgoal',
+	
+	
+	$.getJSON('gd.php?gametype=grid&season='+ season +'&goal='+ goal +'&champ='+ champ +'',
 	function (data) {
     	var html = '';
     	
+    	
     	for (var i = 0; i < data.length; i++) {
         	html += "<tr>";
-        	html += "<td><a href='#' onclick='goChamp(" + data[i].GameId + ")' >" + data[i].ChampName + "</a></td>";
+        	html += "<td><a href='#' onclick='goChamp(" + data[i].GameId + ", season=\""+season+"\")' >" + data[i].ChampName + "</a></td>";
         	html += "<td>" + data[i].KDA + "</td>";
         	html += "<td>" + data[i].Kills + "</td>";
         	html += "<td>" + data[i].Deaths + "</td>";
@@ -60,15 +63,56 @@ function goalClick(){
         	
     	}
     	$("#mytable tbody").html(html);
+    	
+    	if (season == 'season4'){
+    		title = '<p>Welcome to the stats dashboard for Season 4. Since having a kid at the begining of Season 4 I have not'; 
+    		title += 'had much time to play ranked so most games here will be normal and ARAM games. After I got to the point of being able to play a ';
+    		title += 'few game a night in June I thought lets focus for the rest of Season 4 on basic game stats to get better at the game and make myself'; 
+    		title += 'a stronger player for Season 5. </p>';	
+          	title += '<h5>Goals for Season 4</h5>';
+          	title += '<ul>';
+          	title += '<li>Try to maintain a 3.00 KDA in solo queue for normals and ARAM.</li>';
+          	title += '<li>Try to play at least 20 games with each support</li>';
+          	title += '<ul>';
+          	title += '<li>Morgana</li>';
+          	title += '<li>Leona</li>';
+          	title += '<li>Braum</li>';
+          	title += '<li>Thresh</li>';
+          	title += '<li>Sona</li>';
+          	title += '<li>Nami</li>';
+          	title += '</ul>';
+          	title += '<li>Placing at least 30 wards per game as a support</li>';
+          	title += '<li>Get better at positioning!!!!!!</li>';
+          	title += '<li>Have Fun!</li>';
+          	title += '</ul>';
+    		
+    		
+    		$("#Champ").html(title);
+    		
+    		header = 'Season 4';
+    		$("#Header").html(header);
+    	}
 	});
 	
 	
-	$.getJSON('gd.php?gametype=goalaverages',
+	$.getJSON('gd.php?gametype=averages&season='+ season +'&goal='+ goal +'&champ='+ champ +'',
 	function (data) {
     	var vid = '';
     	
+    	if (season == 'season4'){
+    		
+    		if (goal == 'season4goal'){
+    			toptitle = 'S4 Goal Champs Averages';
+    		}else{
+    			toptitle = 'S4 Champs Averages';
+    		}
+    		
+    	}else{
+    		toptitle = 'Current Averages';
+    	}
+    	
     	for (var i = 0; i < data.length; i++) {
-    		vid += "<h2>Goal Champs Current Averages</h2>";
+    		vid += "<h2>" + toptitle + " </h2>";
         	vid += "<ul>";
         	vid += "<li> Average KDA: " + roundToTwo(data[i].AverageKDA) + "</li>";
         	vid += "<li> Average Kills: " + roundToTwo(data[i].AverageKills) + "</li>";
@@ -84,9 +128,9 @@ function goalClick(){
 	
 }//end goal click
 
-function goChamp(gameId) {
+function goChamp(gameId, season) {
     
-$.getJSON('gd.php?gametype=single&gameid=' + gameId + ' ',
+$.getJSON('gd.php?gametype=single&gameid=' + gameId + '&season=' + season + ' ',
 	function (data) {
     	var html = '';
     	var video = '';

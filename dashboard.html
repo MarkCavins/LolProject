@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -42,7 +41,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="dashboard.html">Season 4 Dashboard</a>
+          <a class="navbar-brand" href="dashboard.html">Muffin Puffer's Dashboard</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -57,29 +56,25 @@
       <div class="row">
    
         <div class="col-sm-11 col-sm-offset-1 col-md-12 col-md-offset-0 col-lg-12 col-lg-offset-0 main">
-          <h1 class="page-header">Season 4</h1>
+          <h1 class="page-header" id="Header">Pre-Season 5</h1>
           
           <div class="row placeholders col-md-5" id="Champ">
-          	<p>Welcome to the stats dashboard. Since having a kid at the begining of Season 4 I have not had much time to play ranked so most
-          	games here will be normal and ARAM games. After I got to the point of being able to play a few game a night in June I thought lets focus
-          	for the rest of Season 4 on basic game stats to get better at the game and make myself a stronger player for Season 5.	
-          	</p>
-          	<h5>Goals for Season 4</h5>
+          	<p> Welcome to Pre-Season! Going into the last month I almost considered abandoning my 4th Season goal and going back into ranked. Then I went on a 2 week 
+          		streak where I averaged 1 win to every 6 losses. If this had been in ranked I would have said this is because of the scramble for everyone to get out of
+          		their current Division. But this was Normals so I didn't get it. Suffice to say I stayed in normals and lost my lovely silver border. So Sad. </p>
+          	
+          	<p> But now is the time where Riot introduces most of the changes for the next season and JOY an update to the map. As of yet I don't have a goal except to
+          		further work on support mechanics. I will be focusing more on non-traditional supports and champs that I can use to carry a game in case the lane partner 
+          		is not up to the task.</p>
+          	
           	<ul>
-          		<li>Try to maintain a 3.00 KDA in solo queue for normals and ARAM.</li>
-          		<li>Try to play at least 20 games with each support</li>
-          			<ul>
-          				<li>Morgana</li>
-          				<li>Leona</li>
-          				<li>Braum</li>
-          				<li>Thresh</li>
-          				<li>Sona</li>
-          				<li>Nami</li>
-          			</ul>
-          		<li>Placing at least 30 wards per game as a support</li>
-          		<li>Get better at positioning!!!!!!</li>
-          		<li>Have Fun!</li>
-          	</ul>
+          	<h3>Starting Goal</h3>
+          		<li>4.00 KDA - 3.00 was too easy to obtain so going for 4.</li>
+          		<li>Have more kills than deaths - Last season I let my assists carry my KDA. That only works when your team is getting kills</li>
+          		<li>Place 30 wards per game as a support. 15 as any other lane - I saw that when I did not play as a support the guy who did thought 
+          			other items were more important than wards. So if they can't be up to the task I need to buy more wards. I probably need to buy
+          			more wards anyways. vision is key.</li>	
+           </ul>
           </div>
           <div class="row video col-md-3 col-md-offset-1" id="video">
            
@@ -92,7 +87,7 @@
           
           <div class="table-responsive col-md-12"> 
           <h2 class="sub-header">Game Data</h2>   
-			<p></p><a href="#" onclick='goalClick()'>Only Season 4 Goal Champs</a></p>    	
+			<p><a href="#" onclick='goalClick(season = "season4")'>Season 4 Games </a> | <a href="#" onclick='goalClick(seson = "season4", goal = "season4goal")'> Only Season 4 Goal Champs</a></p>    	
             <table class="table table-striped" id='mytable'>
               <thead>
                 <tr>
