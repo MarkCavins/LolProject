@@ -24,7 +24,9 @@ function getGameGrid($season=NULL,  $goal=NULL, $champ=NULL){
 		
 	require('gameconnect.php');
 	if ($season == NULL){
-		$setDb = 'FROM preseason5';
+		$setDb = 'FROM Season5';
+	}else if ($season == 'season5'){
+		$setDb = 'FROM Season5';
 	}else if ($season == 'preseason5'){
 		$setDb = 'FROM preseason5';
 	}else if ($season == 'season4'){
@@ -80,7 +82,9 @@ function getsingleGame($gameid = null, $season = null){
 		require('gameconnect.php');
 	
 		if ($season == NULL || $season == 'undefined'){
-			$setDb = 'FROM preseason5';
+			$setDb = 'FROM Season5';
+		}else if ($season == 'season5'){
+		    $setDb = 'FROM Season5';
 		}else if ($season == 'preseason5'){
 			$setDb = 'FROM preseason5';
 		}else if ($season == 'season4'){
@@ -120,7 +124,9 @@ function getAverages($season=NULL,  $goal=NULL, $champ=NULL){
 		require('gameconnect.php');
 
 		if ($season == NULL){
-			$setDb = 'FROM preseason5';
+			$setDb = 'FROM Season5';
+		}else if ($season == 'season5'){
+		   $setDb = 'FROM Season5';
 		}else if ($season == 'preseason5'){
 			$setDb = 'FROM preseason5';
 		}else if ($season == 'season4'){

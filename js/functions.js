@@ -92,6 +92,31 @@ function goalClick(season, goal, champ){
     		header = 'Season 4';
     		$("#Header").html(header);
     	}
+    	
+    	if (season == 'preseason5'){
+    		title = '<p> Welcome to Pre-Season! Going into the last month I almost considered abandoning my 4th Season goal and going back into ranked. Then I went on a 2 week '; 
+    		title += 'streak where I averaged 1 win to every 6 losses. If this had been in ranked I would have said this is because of the scramble for everyone to get out of ';
+    		title += 'their current Division. But this was Normals so I did not get it. Suffice to say I stayed in normals and lost my lovely silver border. So Sad. </p>'; 
+    		title += '<p> But now is the time where Riot introduces most of the changes for the next season and JOY an update to the map. As of yet I do not have a goal except to';	
+          	title += '	further work on support mechanics. I will be focusing more on non-traditional supports and champs that I can use to carry a game in case the lane partner ';
+          	title += 'is not up to the task.</p>';
+          	title += '<ul>';
+          	title += '<h3>Starting Goal</h3>';
+          	title += '<li>4.00 KDA - 3.00 was too easy to obtain so going for 4.</li>';
+          	title += '<li>Have more kills than deaths - Last season I let my assists carry my KDA. That only works when your team is getting kills</li>';
+          	title += '<li>Place 30 wards per game as a support. 15 as any other lane - I saw that when I did not play as a support the guy who did thought ';
+          	title += 'other items were more important than wards. So if they can not be up to the task I need to buy more wards. I probably need to buy';
+          	title += ' more wards anyways. vision is key.</li>';
+          	title += '</ul>';
+    		
+    		
+    		$("#Champ").html(title);
+    		
+    		header = 'Pre-Season 5';
+    		$("#Header").html(header);
+    	}
+    	
+    	
 	});
 	
 	
