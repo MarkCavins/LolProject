@@ -193,10 +193,18 @@ $.getJSON('gd.php?gametype=single&gameid=' + gameId + '&season=' + season + ' ',
         	html += "<li>Game Comments: " + data[i].Comments + "</li>";
         	html += "</ul>";
 			html += "</div> </div>";
-        	if(data[i].Video != ''){
-        		video = ' <iframe width="560" height="315" src="//www.youtube.com/embed/'+ data[i].Video +'" frameborder="0" allowfullscreen></iframe>';
+        	if(data[i].ChampName != ''){
+				$.getJSON('gd.php?gametype=champ&champ=' + data[i].ChampName + '&season=' + season + ' ',
+					function (data) {
+						video += "";
+						video += "";
+						video += "";
+						video += "";
+						video += "";
+						video += "";
+					}
         	}else{
-        		video = '<p>No video present for this game</p>';
+        		video = '<p>No data present</p>';
         	}
         	 
        }

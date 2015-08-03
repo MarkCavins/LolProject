@@ -16,6 +16,8 @@ if ($gametype == 'grid'){
 	getsingleGame($GameID, $season);
 }else if ($gametype == 'averages'){
 	getAverages($season, $goal, $champ);
+}else if ($gametype == 'champ'){
+	getSingleChamp($season,  $goal, $champ);
 }else{
 	echo 'Select a type of game and resubmit!!!!';
 }
@@ -173,6 +175,83 @@ function getAverages($season=NULL,  $goal=NULL, $champ=NULL){
 	
 }//end function	
 	 
+function getSingleChamp($season=NULL,  $goal=NULL, $champ=NULL){		
+		require('gameconnect.php');
 
+		if ($season == NULL){
+			$setDb = 'FROM Season5';
+		}else if ($season == 'season5'){
+		   $setDb = 'FROM Season5';
+		}else if ($season == 'preseason5'){
+			$setDb = 'FROM preseason5';
+		}else if ($season == 'season4'){
+			$setDb = 'FROM Game';
+		}
+
+		if ($champ == NULL){
+			$setGoal = '';
+		}else{
+			$setGoal = sprintf('WHERE ChampName = %s ', $champ);
+		}
+/*
+$query = 'SELECT ChampName, count(ChampId) AS GamesPlayed, 
+(select count(*) 
+ '. $setDb .' 
+ '. $setGoal .' 
+ and Win = 'Yes') as WinCount,
+(select count(*) 
+ '. $setDb .'  
+ '. $setGoal .' 
+ and Win = 'No') as LossCount,  
+ ROUND(avg(KDA),2) as AverageKDA,
+(SEC_TO_TIME(avg(TIME_TO_SEC(TimePlayed)))) As AverageTimePlayed, 
+(SEC_TO_TIME(SUM(TIME_TO_SEC(TimePlayed)))) As TotalTimePlayed,
+(ROUND(avg(WardsBought),2)) AS AvgWardsBought,
+(ROUND(avg(WardsPlace),2)) As AvgWardsPlaced
+'. $setDb .' 
+'. $setGoal .'
+';
+*/
+		// Connecting, selecting database
+		$link = mysql_connect($mysql_host, $mysql_user, $mysql_password)
+    	or die('Get Games Could not connect: ' . mysql_error());
+		//echo 'Connected successfully';
+		mysql_select_db($db) or die('Get Games Could not select database');
+		// Performing SQL query
+		$query = 'SELECT ChampName, count(ChampId) AS GamesPlayed, 
+		(select count(*) 
+ 		'. $setDb .' 
+ 		'. $setGoal .' 
+ 		and Win = "Yes") as WinCount,
+		(select count(*) 
+ 		'. $setDb .'  
+ 		'. $setGoal .' 
+ 		and Win = "No") as LossCount,  
+ 		ROUND(avg(KDA),2) as AverageKDA,
+		(SEC_TO_TIME(avg(TIME_TO_SEC(TimePlayed)))) As AverageTimePlayed, 
+		(SEC_TO_TIME(SUM(TIME_TO_SEC(TimePlayed)))) As TotalTimePlayed,
+		(ROUND(avg(WardsBought),2)) AS AvgWardsBought,
+		(ROUND(avg(WardsPlace),2)) As AvgWardsPlaced
+		'. $setDb .' 
+		'. $setGoal .'
+		';
+		
+		
+		$result = mysql_query($query) or die('Get Games Query failed: ' . mysql_error());
+		
+		$rows = array();
+		while($r = mysql_fetch_assoc($result)) {
+    		$rows[] = $r;
+		}
+		// Free resultset
+		mysql_free_result($result);
+		// Closing connection
+		mysql_close($link);
+	
+		print json_encode($rows);
+
+	 
+	
+}//end function	
 
 ?>
