@@ -125,7 +125,7 @@ function getsingleGame($gameid = null, $season = null){
 function getAverages($season=NULL,  $goal=NULL, $champ=NULL){		
 		require('gameconnect.php');
 
-		if ($season == NULL){
+		if ($season == NULL ){
 			$setDb = 'FROM Season5';
 		}else if ($season == 'season5'){
 		   $setDb = 'FROM Season5';
@@ -178,7 +178,7 @@ function getAverages($season=NULL,  $goal=NULL, $champ=NULL){
 function getSingleChamp($season=NULL,  $goal=NULL, $champ=NULL){		
 		require('gameconnect.php');
 
-		if ($season == NULL){
+		if ($season == NULL || $season == 'undefined'){
 			$setDb = 'FROM Season5';
 		}else if ($season == 'season5'){
 		   $setDb = 'FROM Season5';
@@ -191,27 +191,9 @@ function getSingleChamp($season=NULL,  $goal=NULL, $champ=NULL){
 		if ($champ == NULL){
 			$setGoal = '';
 		}else{
-			$setGoal = sprintf('WHERE ChampName = %s ', $champ);
+			$setGoal = sprintf("WHERE ChampName = '%s' ", $champ);
 		}
-/*
-$query = 'SELECT ChampName, count(ChampId) AS GamesPlayed, 
-(select count(*) 
- '. $setDb .' 
- '. $setGoal .' 
- and Win = 'Yes') as WinCount,
-(select count(*) 
- '. $setDb .'  
- '. $setGoal .' 
- and Win = 'No') as LossCount,  
- ROUND(avg(KDA),2) as AverageKDA,
-(SEC_TO_TIME(avg(TIME_TO_SEC(TimePlayed)))) As AverageTimePlayed, 
-(SEC_TO_TIME(SUM(TIME_TO_SEC(TimePlayed)))) As TotalTimePlayed,
-(ROUND(avg(WardsBought),2)) AS AvgWardsBought,
-(ROUND(avg(WardsPlace),2)) As AvgWardsPlaced
-'. $setDb .' 
-'. $setGoal .'
-';
-*/
+
 		// Connecting, selecting database
 		$link = mysql_connect($mysql_host, $mysql_user, $mysql_password)
     	or die('Get Games Could not connect: ' . mysql_error());

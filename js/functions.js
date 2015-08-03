@@ -190,28 +190,43 @@ $.getJSON('gd.php?gametype=single&gameid=' + gameId + '&season=' + season + ' ',
         	html += "<li>Game Type: " + data[i].SubType + "</li>";
         	html += "<li>Date Played:" + data[i].GameDate + "</li>";
         	html += "<li>Game Duration: " + data[i].TimePlayed + "</li>";
-        	html += "<li>Game Comments: " + data[i].Comments + "</li>";
         	html += "</ul>";
 			html += "</div> </div>";
-        	if(data[i].ChampName != ''){
+        	 if(data[i].ChampName != ''){
+        	  	
 				$.getJSON('gd.php?gametype=champ&champ=' + data[i].ChampName + '&season=' + season + ' ',
+				
 					function (data) {
-						video += "";
-						video += "";
-						video += "";
-						video += "";
-						video += "";
-						video += "";
-					}
+						
+						for (var i = 0; i < data.length; i++) {
+							video += "<h4>Champ Summary for: "+ data[i].ChampName +"</h4>";
+							video += "<ul>";
+							video += "<li>Games Played: "+ data[i].GamesPlayed +"</li>";
+							video += "<li>Wins: "+ data[i].WinCount +" / Losses: "+ data[i].LossCount +" </li>";
+							video += "<li>Season KDA: "+ data[i].AverageKDA +"</li>";
+							video += "<li>Average Game Legnth: "+ data[i].AverageTimePlayed +"</li>";
+							video += "<li>Time Played this Season: "+ data[i].TotalTimePlayed +"</li>";
+							video += "<li>Average Wards Bought: "+ data[i].AvgWardsBought +"</li>";
+							video += "<li>Average Wards Placed: "+ data[i].AvgWardsPlaced +"</li>";
+							video += "</ul>";
+						}
+						$("#video").html(video);
+					});
         	}else{
-        		video = '<p>No data present</p>';
+        		video = '<p>No data present!</p>';
+        		$("#video").html(video);
         	}
         	 
-       }
+        
+      }
+      
+   
 
     	$("#Champ").html(html);
-    	$("#video").html(video);
+    	
 	}); //end getJson
+
+
 
 
 }//end function
