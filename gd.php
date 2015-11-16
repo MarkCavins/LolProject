@@ -26,7 +26,9 @@ function getGameGrid($season=NULL,  $goal=NULL, $champ=NULL){
 		
 	require('gameconnect.php');
 	if ($season == NULL){
-		$setDb = 'FROM Season5';
+		$setDb = 'FROM preseason6';
+	}else if ($season == 'preseason6'){
+		$setDb = 'FROM preseason6';
 	}else if ($season == 'season5'){
 		$setDb = 'FROM Season5';
 	}else if ($season == 'preseason5'){
@@ -83,15 +85,17 @@ function getsingleGame($gameid = null, $season = null){
 		
 		require('gameconnect.php');
 	
-		if ($season == NULL || $season == 'undefined'){
-			$setDb = 'FROM Season5';
-		}else if ($season == 'season5'){
-		    $setDb = 'FROM Season5';
-		}else if ($season == 'preseason5'){
-			$setDb = 'FROM preseason5';
-		}else if ($season == 'season4'){
-			$setDb = 'FROM Game';
-		}
+	if ($season == NULL || $season == 'undefined'){
+		$setDb = 'FROM preseason6';
+	}else if ($season == 'preseason6'){
+		$setDb = 'FROM preseason6';
+	}else if ($season == 'season5'){
+		$setDb = 'FROM Season5';
+	}else if ($season == 'preseason5'){
+		$setDb = 'FROM preseason5';
+	}else if ($season == 'season4'){
+		$setDb = 'FROM Game';
+	}
 
 
 		// Connecting, selecting database
@@ -125,15 +129,17 @@ function getsingleGame($gameid = null, $season = null){
 function getAverages($season=NULL,  $goal=NULL, $champ=NULL){		
 		require('gameconnect.php');
 
-		if ($season == NULL ){
-			$setDb = 'FROM Season5';
-		}else if ($season == 'season5'){
-		   $setDb = 'FROM Season5';
-		}else if ($season == 'preseason5'){
-			$setDb = 'FROM preseason5';
-		}else if ($season == 'season4'){
-			$setDb = 'FROM Game';
-		}
+	if ($season == NULL ){
+			$setDb = 'FROM preseason6';
+	}else if ($season == 'preseason6'){
+		$setDb = 'FROM preseason6';
+	}else if ($season == 'season5'){
+		$setDb = 'FROM Season5';
+	}else if ($season == 'preseason5'){
+		$setDb = 'FROM preseason5';
+	}else if ($season == 'season4'){
+		$setDb = 'FROM Game';
+	}
 
 		if ($goal == NULL){
 			$setGoal = '';
@@ -178,15 +184,17 @@ function getAverages($season=NULL,  $goal=NULL, $champ=NULL){
 function getSingleChamp($season=NULL,  $goal=NULL, $champ=NULL){		
 		require('gameconnect.php');
 
-		if ($season == NULL || $season == 'undefined'){
-			$setDb = 'FROM Season5';
-		}else if ($season == 'season5'){
-		   $setDb = 'FROM Season5';
-		}else if ($season == 'preseason5'){
-			$setDb = 'FROM preseason5';
-		}else if ($season == 'season4'){
-			$setDb = 'FROM Game';
-		}
+	if ($season == NULL || $season == 'undefined'){
+			$setDb = 'FROM preseason6';
+	}else if ($season == 'preseason6'){
+		$setDb = 'FROM preseason6';
+	}else if ($season == 'season5'){
+		$setDb = 'FROM Season5';
+	}else if ($season == 'preseason5'){
+		$setDb = 'FROM preseason5';
+	}else if ($season == 'season4'){
+		$setDb = 'FROM Game';
+	}
 
 		if ($champ == NULL){
 			$setGoal = '';

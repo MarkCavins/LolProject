@@ -116,6 +116,26 @@ function goalClick(season, goal, champ){
     		$("#Header").html(header);
     	}
     	
+    	if (season == 'season5'){
+    		title = '<p> Season 5 or as I like to call it the season of grinding with Sona and Lulu.'; 
+    		title += 'In Season 5 I was able to capture a full season of stats and find out a little about more about my play style. </p>';
+    		title += '<h3>Things learned:</h3>'; 
+          	title += '<ul>';
+          	title += '<li>Even focusing mostly on supports I could keep a mid 4 KDA</li>';
+          	title += '<li>Akali is either and instant win or she cannot carry the team to victory. There were several games where I would have 20 plus kills but still not keep my team in the game.</li>';
+          	title += '<li>I could keep an over .500 winrate with champs like Ziggs, Veigar, Lulu and Sona</li>';
+          	title += '<li>Having 2 champs in two lanes that I could help carry games gave me the chance to focus on those two lanes </li>';
+          	title += '<li>With Jungling and Top I could not have the same winrate so I know for next season that that should be a focus.</li>';
+          	title += '<li>Average warding for supports did not increase or decrease. One thing I might track in future seasons is the coorilation to ward count to win ratio.</li>';
+          	title += '</ul>';
+    		
+    		
+    		$("#Champ").html(title);
+    		
+    		header = 'Season 5';
+    		$("#Header").html(header);
+    	}
+    	
     	
 	});
 	
