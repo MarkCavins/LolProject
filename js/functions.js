@@ -200,13 +200,11 @@ $.getJSON('gd.php?gametype=single&gameid=' + gameId + '&season=' + season + ' ',
         	html += "<li>Penta Kills: " + data[i].PentaKills + "</li>";
         	html += "<li>Gold Earned: " + data[i].GoldEarned + "</li>";
         	html += "<li>Gold Spent: " + data[i].GoldSpent + "</li>";
-        	html += "<li>Wards Purchased: " + data[i].WardsBought + "</li>";
         	html += "<li>Wards Placed: " + data[i].WardsPlace + "</li>";
         	html += "</ul>";
         	html += "<p>Game Data</p>";
         	html += "<ul>";
         	html += "<li>Game Mode: " + data[i].GameMode + "</li>";
-        	html += "<li>Map: " + data[i].Map + "</li>";
         	html += "<li>Game Type: " + data[i].SubType + "</li>";
         	html += "<li>Date Played:" + data[i].GameDate + "</li>";
         	html += "<li>Game Duration: " + data[i].TimePlayed + "</li>";
