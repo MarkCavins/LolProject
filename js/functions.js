@@ -136,6 +136,22 @@ function goalClick(season, goal, champ){
     		$("#Header").html(header);
     	}
     	
+    	if (season == 'preseason6'){
+    
+    		title =  '<p> Pre-season 6</p>'; 
+    		title += '<p> For pre-season I will be focusing on Top and Jungle roles. This went badly for me last season with only a 45% win rate';
+    		title += 'when I went those roles. While I will never be a good Jungler I will focus on 2 champs that I can help lanes early.</p>'; 
+          	title += '<p>With Top lane I am going to focus on Jugernauts that can bully lane and champs that can use Rageblade until that';
+          	title += 'items eventural nerf.</p>';
+         	title += '<p>Provided that I can up my win rate I will start playing ranked in season 6. </p>';
+    		
+    		
+    		$("#Champ").html(title);
+    		
+    		header = 'Pre-Season 6';
+    		$("#Header").html(header);
+    	}
+    	
     	
 	});
 	
