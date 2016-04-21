@@ -202,8 +202,8 @@ $.getJSON('gd.php?gametype=single&gameid=' + gameId + '&season=' + season + ' ',
     			html += " <div class='jumbotron' id='loss'> <div class='container'>";
     		}
         	html += "<p>";
-        	html += "Champion: " + data[i].ChampName + " ";
-        	html += "KDA: " + data[i].KDA + " ";
+        	html += "Champion: " + data[i].ChampName + "</p> ";
+        	html += "<p> KDA: " + data[i].KDA + " ";
         	html += "Kills: " + data[i].Kills + " ";
         	html += "Deaths: " + data[i].Deaths + " ";
         	html += "Assists: " + data[i].Assists + " ";
@@ -222,7 +222,7 @@ $.getJSON('gd.php?gametype=single&gameid=' + gameId + '&season=' + season + ' ',
         	html += "<ul>";
         	html += "<li>Game Mode: " + data[i].GameMode + "</li>";
         	html += "<li>Game Type: " + data[i].SubType + "</li>";
-        	html += "<li>Date Played:" + data[i].GameDate + "</li>";
+        	html += "<li>Date Played: " + data[i].GameDate + "</li>";
         	html += "<li>Game Duration: " + data[i].TimePlayed + "</li>";
         	html += "</ul>";
 			html += "</div> </div>";
