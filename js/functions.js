@@ -240,7 +240,6 @@ $.getJSON('gd.php?gametype=single&gameid=' + gameId + '&season=' + season + ' ',
 							video += "<li>Season KDA: "+ data[i].AverageKDA +"</li>";
 							video += "<li>Average Game Legnth: "+ data[i].AverageTimePlayed +"</li>";
 							video += "<li>Time Played this Season: "+ data[i].TotalTimePlayed +"</li>";
-							video += "<li>Average Wards Bought: "+ data[i].AvgWardsBought +"</li>";
 							video += "<li>Average Wards Placed: "+ data[i].AvgWardsPlaced +"</li>";
 							video += "</ul>";
 						}
