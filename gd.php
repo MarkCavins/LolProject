@@ -207,7 +207,7 @@ function getSingleChamp($season=NULL,  $goal=NULL, $champ=NULL){
 		if ($champ == NULL){
 			$setGoal = '';
 		}else{
-			$setGoal = sprintf("WHERE ChampName = '%s' ", $champ);
+			$setGoal = sprintf("WHERE ChampId = '%s' ", $champ);
 		}
 
 		// Connecting, selecting database

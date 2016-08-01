@@ -228,7 +228,7 @@ $.getJSON('gd.php?gametype=single&gameid=' + gameId + '&season=' + season + ' ',
 			html += "</div> </div>";
         	 if(data[i].ChampName != ''){
         	  	
-				$.getJSON('gd.php?gametype=champ&champ=' + data[i].ChampName + '&season=' + season + ' ',
+				$.getJSON('gd.php?gametype=champ&champ=' + data[i].ChampId + '&season=' + season + ' ',
 				
 					function (data) {
 						
