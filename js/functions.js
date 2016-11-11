@@ -151,6 +151,20 @@ function goalClick(season, goal, champ){
     		header = 'Pre-Season 6';
     		$("#Header").html(header);
     	}
+    	    	if (season == 'Season6'){
+    
+    		title =  '<p> Season 6</p>'; 
+    		title += '<p> After keeping an on-par rating in pre-season I am going back to ranked.</p>';
+    		title += '<p>With the new champ select I will choose Support as my primary role and mid as secondary. After pre-season I found those'; 
+          	title += 'two lanes gave me a 60% win ratio. Playing any other role I had only a 30% win rate.</p>';
+          	title += '<p>Going back into ranked I will focus on the lanes I can most efectively help to win the lanes with.</p>';
+    		
+    		
+    		$("#Champ").html(title);
+    		
+    		header = 'Season 6';
+    		$("#Header").html(header);
+    	}
     	
     	
 	});
