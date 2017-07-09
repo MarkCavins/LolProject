@@ -1,9 +1,9 @@
 <?php
 	
 	require('gameconnect.php');
-	
+	$gamekeyurl = $_REQUEST['game'];
 	//Main game URL
-	$game_url = 'https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/27302940/recent?'.$gamekey;
+	$game_url = 'https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/27302940/recent?'.$gamekeyurl;
 
 	$userAgent = "Muffin Puffer Lol Processor";
 	$ch=curl_init();
