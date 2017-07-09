@@ -1,7 +1,7 @@
 <?php
 	
 	require('gameconnect.php');
-	$gamekeyurl = $_REQUEST['game'];
+	$gamekeyurl = $_REQUEST['key'];
 	//Main game URL
 	$game_url = 'https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/27302940/recent?'.$gamekeyurl;
 
