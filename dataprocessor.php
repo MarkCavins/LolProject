@@ -3,7 +3,7 @@
 	require('gameconnect.php');
 	$gamekeyurl = $_REQUEST['key'];
 	//Main game URL
-	$game_url = 'https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/27302940/recent?'.$gamekeyurl;
+	$game_url = 'https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/27302940/recent?api_key='.$gamekeyurl;
 
 	$userAgent = "Muffin Puffer Lol Processor";
 	$ch=curl_init();
@@ -46,8 +46,8 @@
 			}
 		
 			if($p->championId != null && $p->championId != ''){
-				$champ_url = sprintf('https://na.api.pvp.net/api/lol/static-data/na/v1.2/champion/%d?%s',
-				$p->championId, $gamekey);
+				$champ_url = sprintf('https://na.api.pvp.net/api/lol/static-data/na/v1.2/champion/%d?api_key=%s',
+				$p->championId, $gamekeyurl);
 			
 				$userAgent = "Muffin Puffer Lol Processor";
         		$ch1 = curl_init();
